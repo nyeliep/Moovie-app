@@ -1,0 +1,130 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 50px;
+    background-color: #333;
+    color: white;
+  }
+  
+
+  .logo {
+    font-size: 40px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .logo-highlight {
+    color: orange;
+  }
+  
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    background-color: #444;
+    padding: 5px;
+    width: 40vw;
+    border-radius: 5px;
+  }
+    
+  .search-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 50vw;
+    color: white;
+  }
+  
+  .search-button {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  
+  .sign-in-button {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .results-container {
+      position: absolute;
+      top: 9%; 
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 1; 
+    }
+    
+    .movie-thumbnail {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .movie-thumbnail img {
+      width: 50px;
+      height: 75px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+  
+
+  .loading-text {
+    margin-top: 20px;
+  }
+
+
+@media screen and (max-width: 768px) {
+  .nav-link {
+    display: none; 
+  }
+
+  
+  .logo {
+    font-size: 20px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-button {
+    margin-left: 0;
+  }
+
+  
+  .toggle-menu-button {
+    display: block; 
+  }
+
+
+  .search-container {
+    display: none;
+  }
+
+  
+  .menu-active .search-container {
+    display: flex;
+  }
+}
+  

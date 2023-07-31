@@ -1,0 +1,57 @@
+  .genre-container {
+    margin-top: 2%;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    overflow-x: auto; 
+    scrollbar-width: thin;
+    flex-wrap: nowrap; 
+    
+  }
+  
+  .genre-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .genre-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+  }
+  
+  
+  .genre-tag {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #36454F;
+    font-size: 24px;
+    color: #fff;
+    padding: 10px 100px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .genre-tag.selected {
+    background-color: orange;
+    color: #fff;
+  }
+  
+  
+  .genre-list li {
+    margin-right: 10px;
+    
+  }
+  
+  .genre-list button {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .genre-list button:hover {
+    background-color: #e0e0e0;
+    width: 25vw;
+  }
+  
