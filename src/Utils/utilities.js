@@ -20,37 +20,46 @@ export const getMovies = async()=>{
     }
 }
 
+export const nowPlaying = async()=>{
+  try {
+     const response = await fetch(`${BASE_URL}3/movie/now_playing`,{
+
+      method: "GET",
+      headers:{
+          Authorization:`Bearer ${ACCESS_TOKEN}`,
+          "Content-Type":"application/json",
+      },
+     })
+     const result =await response.json();
+     return result;
+
+  } 
+  catch (error) {
+     return error.message; 
+  }
+}
 
 
 
-export const UpcomingMovies = async (movieIds) => {
+
+export const upcomingMovies = async()=>{
     try {
-      const response = await fetch(`${BASE_URL}/3/movie/upcoming`, {
+       const response = await fetch(`${BASE_URL}/3/discover/movie`,{
+
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
+        headers:{
+            Authorization:`Bearer ${ACCESS_TOKEN}`,
+            "Content-Type":"application/json",
         },
-      });
-  
-      if (!response.ok) {
-        throw new Error("Failed to fetch upcoming movies.");
-      }
-  
-      const data = await response.json();
-      const movies = data.results || [];
-  
-      
-      const selectedMovies = movies.filter((movie) => movieIds.includes(movie.id));
-  
-      return selectedMovies;
-    } catch (error) {
-      console.error('Error fetching upcoming movies:', error);
-      return [];
+       })
+       const result =await response.json();
+       return result;
+
+    } 
+    catch (error) {
+       return error.message; 
     }
-  };
-  
-  
+}
 
 
 export const searchMovies = async (searchQuery) => {
@@ -71,7 +80,7 @@ export const searchMovies = async (searchQuery) => {
   
 
 
-export const movieList = async()=>{
+export const genres = async()=>{
     try {
        const response = await fetch(`${BASE_URL}/3/genre/movie/list`,{
 

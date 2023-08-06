@@ -1,5 +1,5 @@
 import React from "react";
-import "./footer.css";
+import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
@@ -7,8 +7,12 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-section">
+        
         <h4>Download Our App</h4>
-        {/* Add links to app download */}
+        <div className="logo">
+        <img   src="/media/moovie.png" className="logo-img"/> 
+        </div>
+
       </div>
 
       <div className="footer-section">

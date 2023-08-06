@@ -2,32 +2,44 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './slider.css';
+import './style.css';
 import { Link } from "react-router-dom";
-import { UpcomingMovies } from '../../../Utils/utilities';
+import { upcomingMovies,nowPlaying } from '../../Utils/utilities';
 
 const MovieSlider = () => {
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
+
+  // const [nowplying, setNowPlaying] = useState([]);
+  // const [loading, setLoading] = useState(true)
+
+  // useEffect(()=>{
+  //   (async()=>{
+  //     const movies = nowPlaying();
+  //     console.log({movies})
+  //     setLoading(false)
+  //     setNowPlaying(movies.results)
+  //   })();
+  // },[]);
+
+  // if (loading){
+  //   return <h4>loading movies...</h4>
+  // }
+  const [comingMovies, setUpcomingMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      try {
-        const movieIdsToFetch = [614930, 346698, 667717, 459003, 667538]; // Add the desired movie IDs here
-        const upcoming = await UpcomingMovies(movieIdsToFetch);
-        console.log("API Response:", upcoming);
-        setUpcomingMovies(upcoming);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching upcoming movies:', error);
-        setLoading(false);
-      }
+      const movies = await upcomingMovies();
+      console.log({ movies });
+      setLoading(false);
+      setUpcomingMovies(movies.results);
     })();
   }, []);
 
   if (loading) {
-    return <h4>Loading movies...</h4>;
+    return <h1>Loading movies...</h1>;
   }
+
+ 
 
   const settings = {
     dots: true,
@@ -39,15 +51,15 @@ const MovieSlider = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
       {
@@ -62,20 +74,20 @@ const MovieSlider = () => {
     nextArrow: <CustomNextArrow />,
   };
 
+  const limit = 20; 
+  const slicedMovies = comingMovies.slice(15, limit);
+
   return (
     <div className="slider-container">
       <Slider {...settings} className="container">
-        {upcomingMovies.length > 0 ? (
-          upcomingMovies.map((movie) => (
+        {slicedMovies.length > 0 ? (
+          slicedMovies.map((movie) => (
             <Link to={`/movie/${movie.id}`} key={movie.id} className="image-link">
               <div key={movie.id} className="image-container" style={{ backgroundImage: `url(${process.env.REACT_APP_IMAGE_BASE_URL}${movie.poster_path})` }}>
                 <div className="movie-info-overlay">
-                <span>{movie.release_date}</span>
                   <h3>{movie.title}</h3>
                   <p>{movie.overview}</p>
                   <span>{movie.rating}</span>
-                  <span>{movie.popularity}</span>
-                
                   <div className="buttons-container">
                     <button className="watch-now-button">Watch Now</button>
                     <button className="add-to-favorites-button">Add to Favorites</button>

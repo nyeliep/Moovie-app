@@ -6,6 +6,9 @@
     display: flex;
     justify-content: space-around;
   }
+  .logo-img{
+    height: 15vh;
+  }
   
   .footer h4 {
     margin-bottom: 10px;

@@ -1,17 +1,17 @@
 import React from "react";
-import Navbar from "../Sections/Navigation/navbar";
+import Navigation from "../Navigation";
 import GetMovies from "../GetMovies";
-import MovieCategory from "../Sections/Category/category";
-import MovieSlider from "../Sections/Slider/slider";
+import MovieGenre from "../Genre";
+import MovieSlider from "../Slider";
 // import MovieDetails from "../MovieDetails/movieDeets";
-import Footer from "../Sections/Footer/footer";
+import Footer from "../Footer";
 
 function Landing(){
     return(
         <>
-        <Navbar/>
+        <Navigation/>
         <MovieSlider/>
-        <MovieCategory/>
+        <MovieGenre/>
         <GetMovies/>
         <Footer/>
         </>
