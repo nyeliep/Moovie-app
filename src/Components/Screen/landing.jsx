@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "../Navigation";
-import GetMovies from "../GetMovies";
+// import GetMovies from "../GetMovies";
 import MovieGenre from "../Genre";
 import MovieSlider from "../Slider";
 // import MovieDetails from "../MovieDetails/movieDeets";
@@ -12,7 +12,7 @@ function Landing(){
         <Navigation/>
         <MovieSlider/>
         <MovieGenre/>
-        <GetMovies/>
+        {/* <GetMovies/> */}
         <Footer/>
         </>
     )

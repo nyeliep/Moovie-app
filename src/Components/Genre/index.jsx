@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { genres, getMovies } from '../../Utils/utilities'; // Update the import paths based on your utilities file
 import './style.css';
+import { Link } from 'react-router-dom';
+import ImageContainer from '../../Atom/ImageContainer';
 
 const MovieGenre = () => {
   const [movieGenres, setMovieGenres] = useState([]);
@@ -17,7 +19,7 @@ const MovieGenre = () => {
         setMovieGenres(genreResult.genres);
 
         const movieResult = await getMovies();
-        setMovies(movieResult.movies);
+        setMovies(movieResult.results);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -30,29 +32,33 @@ const MovieGenre = () => {
   }, []);
 
   useEffect(() => {
-  if (selectedGenre !== null) {
-    const filteredMovies = movies?.filter((movie) =>
-      movie.genre_ids.includes(selectedGenre)
-    ) || [];
-    setFilteredMovies(filteredMovies);
-  } else {
-    setFilteredMovies(movies);
-  }
-}, [selectedGenre, movies]);
+    if (selectedGenre !== null) {
+      const filteredMovies = movies?.filter((movie) =>
+        movie.genre_ids.includes(selectedGenre)
+      );
+      setFilteredMovies(filteredMovies || []);
+    } else {
+      setFilteredMovies(movies);
+    }
+  }, [selectedGenre, movies]);
 
   const handleGenreClick = (genreId) => {
+    if (genreId === selectedGenre) {
+      return; // Skip unnecessary update if the genre is already selected
+    }
     setSelectedGenre(genreId);
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error fetching data.</div>;
+    return <div className="error">Error fetching data.</div>;
   }
 
   return (
+    <div>
     <div className="genre-container">
       {movieGenres && movieGenres.length > 0 ? (
         <>
@@ -73,25 +79,26 @@ const MovieGenre = () => {
           ))}
         </>
       ) : (
-        <div>Loading genres...</div>
+        <div className="loading">Loading genres...</div>
       )}
-
-      <div className="movie-list">
+        </div>
+  <div  className='movie-posters-container'>
+   <div className="movie-list">
         {filteredMovies && filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => (
-            <div key={movie.id} className="movie-item">
-              {/* Display the movie details here */}
-              <h3>{movie.title}</h3>
-              {/* Add more movie details */}
-            </div>
-          ))
-        ) : (
-          <div>No movies found.</div>
-        )}
-      </div>
+            <Link key={movie.id} to={`/movie/${movie.id}`}>
+            <ImageContainer props={movie} />
+          </Link>
+        ))
+      ) : (
+        <h1>No movies found</h1>
+      )}
     </div>
+    </div>
+    </div>
+
   );
 };
-
 export default MovieGenre;
+
 

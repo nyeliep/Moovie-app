@@ -1,3 +1,7 @@
+body{
+  background-color: black;
+}
+
 .navbar-container {
     display: flex;
     align-items: center;

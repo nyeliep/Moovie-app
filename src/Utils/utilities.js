@@ -20,6 +20,25 @@ export const getMovies = async()=>{
     }
 }
 
+export const fetchMoviesByGenre = async()=>{
+  try {
+     const response = await fetch(`${BASE_URL}/3/discover/movie`,{
+
+      method: "GET",
+      headers:{
+          Authorization:`Bearer ${ACCESS_TOKEN}`,
+          "Content-Type":"application/json",
+      },
+     })
+     const result =await response.json();
+     return result;
+
+  } 
+  catch (error) {
+     return error.message; 
+  }
+}
+
 export const nowPlaying = async()=>{
   try {
      const response = await fetch(`${BASE_URL}3/movie/now_playing`,{
@@ -101,14 +120,12 @@ export const genres = async()=>{
 
 
 
-
-export const getMovieDetails = async () => {
+  export const getMovieDetails = async (movieId) => {
     try {
-      const response = await fetch(`${BASE_URL}/3/movie/movie_id`, {
-        method: "GET",
+      const response = await fetch(`${BASE_URL}/3/movie/${movieId}`, {
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
         },
       });
       const result = await response.json();
@@ -117,7 +134,3 @@ export const getMovieDetails = async () => {
       return error.message;
     }
   };
-  
-
-
-  

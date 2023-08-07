@@ -54,4 +54,19 @@
     background-color: #e0e0e0;
     width: 25vw;
   }
+  .movie-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 90px;
+    justify-content: space-around;
+  }
+  .movie-posters-container {
+   
+
+  }
+  
+  
+
+
+
   

@@ -8,21 +8,7 @@ import { upcomingMovies,nowPlaying } from '../../Utils/utilities';
 
 const MovieSlider = () => {
 
-  // const [nowplying, setNowPlaying] = useState([]);
-  // const [loading, setLoading] = useState(true)
 
-  // useEffect(()=>{
-  //   (async()=>{
-  //     const movies = nowPlaying();
-  //     console.log({movies})
-  //     setLoading(false)
-  //     setNowPlaying(movies.results)
-  //   })();
-  // },[]);
-
-  // if (loading){
-  //   return <h4>loading movies...</h4>
-  // }
   const [comingMovies, setUpcomingMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 

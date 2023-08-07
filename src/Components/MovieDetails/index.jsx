@@ -1,37 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getMovieDetails } from "../../Utils/utilities";
 
-const MovieDetailsPage = () => {
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getMovieDetails } from '../../Utils/utilities';
+import './style.css';
+
+const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
+
+const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movieDetails, setMovieDetails] = useState(null);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     (async () => {
-      try {
-        const movie = await getMovieDetails(movieId);
-        setMovieDetails(movie);
-      } catch (error) {
-        console.error("Error fetching movie details:", error);
-      }
+      const movieData = await getMovieDetails(movieId);
+      setMovie(movieData);
     })();
   }, [movieId]);
 
-  if (!movieDetails) {
-    return <h1>Loading movie details...</h1>;
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
+
+ 
+  if (!movie.poster_path || !movie.title || !movie.overview || !movie.release_date) {
+    return <div>Missing movie details</div>;
   }
 
   return (
-    <div className="movie-details-expanded">
-      <h2>{movieDetails.title}</h2>
-      <p>Release Date: {movieDetails.release_date}</p>
-      <p>Overview: {movieDetails.overview}</p>
-      {/* Display more movie details here */}
+    <div className="movie-details">
+      <img src={`${IMAGE_BASE_URL}${movie.poster_path}`} alt={movie.title} />
+      <h2>{movie.title}</h2>
+      <p>{movie.overview}</p>
+      <p>Release Date: {movie.release_date}</p>
+  
     </div>
   );
 };
 
-export default MovieDetailsPage;
-
+export default MovieDetails;
 
 
