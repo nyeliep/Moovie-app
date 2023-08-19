@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css"
 import { searchMovies } from "../../Utils/utilities";
 
@@ -34,7 +35,9 @@ const Navigation = () => {
             type="text"
             placeholder="Search"
           />
-          <button onClick={handleSearch} className="search-button">Search</button>
+        <Link to="/search-results">
+          <button className="search-button">Search</button>
+        </Link>
         </div>
 
       <a href="#" className="nav-link">

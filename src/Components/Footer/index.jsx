@@ -5,7 +5,9 @@ import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg
 
 const Footer = () => {
   return (
+    //  <hr style={{color:"orange"}}/>
     <footer className="footer">
+     
       <div className="footer-section">
         
         <h4>Download Our App</h4>
@@ -27,7 +29,7 @@ const Footer = () => {
           <li>
             <a href="#">About Us</a>
           </li>
-          {/* Add other navigation links as needed */}
+         
         </ul>
       </div>
 
@@ -43,7 +45,7 @@ const Footer = () => {
           <li>
             <a href="#">Privacy Policy</a>
           </li>
-          {/* Add other legal links as needed */}
+      
         </ul>
       </div>
 
@@ -66,10 +68,9 @@ const Footer = () => {
       <a href="#" className="social-icon">
         <FontAwesomeIcon icon={faInstagram} />
       </a>
-      {/* Add more social media icons as needed */}
+    
     </div>
 
-        {/* Add contact information or a contact form */}
       </div>
 
       <div className="footer-section">
@@ -81,7 +82,7 @@ const Footer = () => {
       <a href="#" className="social-icon">
         <FontAwesomeIcon icon={faInstagram} />
       </a>
-        {/* Add social media sharing buttons or other sharing options */}
+     
       </div>
     </footer>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { genres, getMovies } from '../../Utils/utilities'; // Update the import paths based on your utilities file
+import { genres, getMovies } from '../../Utils/utilities'; 
 import './style.css';
 import { Link } from 'react-router-dom';
 import ImageContainer from '../../Atom/ImageContainer';
@@ -44,7 +44,7 @@ const MovieGenre = () => {
 
   const handleGenreClick = (genreId) => {
     if (genreId === selectedGenre) {
-      return; // Skip unnecessary update if the genre is already selected
+      return; 
     }
     setSelectedGenre(genreId);
   };

@@ -109,7 +109,8 @@ export const genres = async()=>{
             "Content-Type":"application/json",
         },
        })
-       const result =await response.json();
+       const result =await response.json();    
+       {/* Display search results here */}
        return result;
 
     } 
