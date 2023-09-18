@@ -1,6 +1,9 @@
 # Moovie-app
 
-![Movie App Screenshot](movie_app_screenshot.png)
+![Screenshot fro![Screenshot from 2023-09-18 09-37-51](https://github.com/nyeliep/Moovie-app/assets/119076184/21635a13-6eb2-448d-9aba-4736564426cb)
+m 2023-09-18 09-37-44](https://github.com/nyeliep/Moovie-app/assets/119076184/805b06ac-48f9-4be7-91ae-3abb741abc5e)
+![Uploading Screenshot from 2023-09-18 09-38-00.png…]()
+
 
 ## Overview
 
