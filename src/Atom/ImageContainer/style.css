@@ -1,14 +1,44 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&family=Poppins:wght@200&display=swap');
+
 .image-container{
     width: 100%;
     overflow: hidden;
 
+
 }
 .image-container img{
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
-    height: auto;
-    
+
+
+}
+.movie-image {
+    position: relative;
+    overflow: hidden;
+  }
+ .overlay h1{
+    padding: 0  10px 70px;
+    color: #FF8C00;
+ }
+.overlay{
+    width: 480px;
+    height: 250px;
+    position: absolute;
+    margin-top: -18%;
+    padding: 20px;
+    background-color: rgba(0, 0,0, 0.8);
+    color: #fff;
+    transition: bottom 0.3 ease;
+    padding: 0  10px 150px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.movie-image.hovered .overlay{
+    display: block;
+    bottom: 0;
 }
 
 
-  
+
+
